@@ -23,7 +23,7 @@ set_option linter.unusedTactic false
 
 /-!
 The `variable` command introduces variables that may be used in subsequent definitions,
-examples and theorems. 
+examples and theorems.
 -/
 
 variable (x y : ℤ)
@@ -56,7 +56,7 @@ That is `rw [h1]` has the effect of changing the target to `3 * (5 * y) - 4 * y 
 
 Then `rw [h2]` changes the target to `3 * (5 * 2) - 4 * 2 = 22`
 
-The tactic {tactic}`norm_num` is used to prove arithmetic goals. 
+The tactic {tactic}`norm_num` is used to prove arithmetic goals.
 -/
 
 /-!
@@ -79,8 +79,8 @@ Before you start, think about how each {tactic}`rw` line will change the target.
 variable (z : ℤ)
 
 example (h1 : x = 3 * z) (h2 : y = 9) (h3 : z = 8 - y) : 8 * x + 4 *y + 2 * z = 10 := by
-  sorry
-  done
+  rw [h1, h3, h2]
+  norm_num
 
 example (h1 : x = 3) (h2 : y = 4 * x ^ 2) : y = 36 := by
   sorry
